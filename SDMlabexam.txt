@@ -1,0 +1,204 @@
+Git
+
+check docker version
+Command prompt=>  git
+
+1.login to gitlab
+2.create a new project to create new repositary
+3.make as public
+4.create folder as local repositary
+5.inside create a folder as project
+6.create a text file
+7.open git bash
+8.command
+		git init
+9.command
+		git status
+10.to know about user
+	command
+		git config --global user.name "simply Done"
+		git config --global user.email ""
+11. add the file
+	Command
+		git add textfile.txt
+12. check status : git status
+13.to commit the file
+	Command
+		git commit -m "this is our first commit"
+14.check status
+15.add remote 
+	Command
+		git remote add origin https://gitlab.com/testgit5743509/gitexam.git
+16.to push to repository
+	Command
+		git push -u origin master/main
+17.Clone the repository
+	1)create a folder
+	2)open git bash
+	3)chane the command directory to it
+		Command
+		 cd "C:\Users\HP\Desktop\Clone repositary\sample"
+	4)open gitlab 
+	5)copy the url of http in clone option
+	6)open git bash in clonoing repositary
+		Command
+			git clone "https://gitlab.com/testgit5743509/gitexam.git"
+18.Creating a branch
+	a)change cd to the current location
+	b)get a branch
+		Command
+			git branch MynewBranch
+	c)check branch
+		git checkout MynewBranch
+	d)create a file
+		touch test2.txt
+	e)check status
+`	f)add to branch
+		git add.
+	g)git commit -m "add test2.txt"
+	h)git push origin MynewBrach
+	i)swich to master branch
+		git checkout master
+	j)merge branch to master
+		git merge MynewBranch
+	k)git push====new branch and master branch become gquivalent
+	l)to delete branch
+		git banch -d MynewBranch
+		these only delete in local repositaory
+	m)to delete from remote repositary
+		git push origin --delete MynewBranch
+
+
+=====================================================================================
+
+Docker 
+
+1. create a file "dockerfile"
+	FROM openjdk:11-jre-slim
+	ADD helloworld.class /
+	CMD ["class", "helloworld"]
+
+2. command prompt
+	docker build -t name4 .
+
+3. rum the image
+	docker run name4
+
+4. 	FROM openjdk:11-jre-slim
+	COPY hello2.java /
+	RUN hello2.java
+	CMD ["java","hello2"]
+
+==========================================================================================
+
+================ GIT COMMANDs ================
+
+mkdir folder_name
+
+cd (folder_name path)
+
+Starts Git:
+
+$ git init
+
+===delete Git repository=== 
+$ rm -rf .git
+
+=== Add files to the staging area ===
+
+$ git add file1 file2 ....
+$ git add . (all files recursively)
+$ git add *.txt (all txt files)
+
+=== Commit files ===
+
+$ git commit (W/O comment)
+
+$ git commit -m "some comment here" (with comment)
+
+$ git commit -a -m "some text" (Commit all modified Files)
+
+=== Create a file in simple way ===
+
+$ echo "some text" > filename.extension (replace data)
+
+$ echo "some data" >> filename.ext (append data)
+
+== Check status==
+$ git status (red marks untracked files)
+
+=== Delete files ===
+$ rm filename
+
+=== View all files in the statging Area ====
+$ git ls-files
+
+$ git rm file1 file2 ... (remove files from repository as well as Staging area)
+
+=====================================
+=== steps to push files to github ===
+=====================================
+
+$ git init
+$ git add -A
+$ git commit -m 'Added my project'
+$ git remote add origin git@github.com:<name>/my-new-project.git
+$ git push -u -f origin main
+
+
+===============================================================================================
+
+=== DOCKER ===
+
+$ docker init
+$ docker ps 
+$ docker ps -a (List all containers)
+
+$ docker build -t imagename .    (build an image)
+$ docker run imageName
+
+$ docker images (List all images)
+$ docker rmi imageID 
+
+$ docker rmi $(docker images -q)  (Remove all docker images at once)
+ 
+
+=== Docker swarm Enviornment ===
+
+$ docker swarm init
+$ docker service create --name apache --replicas 2 -p 80:80 httpd
+$ docker service scale apache=4
+
+===== Docker file to run any java Program =====
+
+FROM openjdk:11-jre
+COPY ProgramName.java .
+RUN javac ProgramName.java
+CMD ["java", "ProgramName"]
+
+// After above file , just build imagae and run image
+
+==== Docker file to run any Node.js program =====
+
+FROM node:18
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+CMD [ "node" , "myExpress.js" ]`
+
+====== Building image now and then running ======
+
+docker build -t vedant/webapp:v1 .
+docker run -d -p 8080:8080 vedant/webapp:v1
+
+// After above file , just build imagae and run image
+
+
+
+
+
+
+
+
+
